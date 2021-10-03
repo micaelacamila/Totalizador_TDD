@@ -26,11 +26,20 @@ function impuestoEstado(estado){
     let impuestos = {"CA":0.0825,"UT":0.0665,"NV":0.08,"TX":0.0625,"AL":0.04,"":0}
     return impuestos[estado];
 }
+function obtenerDescuento(sub){
+    if(sub>1000){
+        return sub *0.03;
+    }
+    else {
+        return 0;
+    }
+}
 function calcularTotal(cantidad,precio,estado){
     let subTotal = cantidad*precio;
-    if(subTotal>1000){
-        subTotal = subTotal-subTotal*0.03
-    }
+    let descuento;
+    descuento = obtenerDescuento(subTotal);
+    subTotal = subTotal-descuento;
+    
     let impuesto = impuestoEstado(estado);
     subTotal = subTotal + subTotal*impuesto;
     
