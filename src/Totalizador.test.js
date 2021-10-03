@@ -20,6 +20,9 @@ describe("Totalizador",() =>{
     it("deberia calcular el total para una cantidad ",()=>{
         expect(calcularTotal(501,2,"NV")).toEqual(1049.6952);
     });
+    it("deberia calcular el total para una cantidad ",()=>{
+        expect(calcularTotal(501,20,"AL")).toEqual(9378.72);
+    });
 });
 
 function impuestoEstado(estado){
@@ -27,12 +30,19 @@ function impuestoEstado(estado){
     return impuestos[estado];
 }
 function obtenerDescuento(sub){
-    if(sub>1000){
-        return sub *0.03;
-    }
-    else {
-        return 0;
-    }
+    var descuentoPrecio = 0;
+      if (sub >= 30000){
+          descuentoPrecio = 0.15*sub;
+      }else if(sub >= 10000){
+          descuentoPrecio = 0.1*sub;
+      }else if(sub >= 7000){
+          descuentoPrecio = 0.07*sub;
+      }else if(sub >= 3000){
+          descuentoPrecio = 0.05*sub;
+      }else if(sub >= 1000){
+          descuentoPrecio = 0.03*sub;
+      }
+      return descuentoPrecio;
 }
 function calcularTotal(cantidad,precio,estado){
     let subTotal = cantidad*precio;
