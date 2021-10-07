@@ -5,23 +5,36 @@ describe("Totalizador",() =>{
     it("deberia calcular el total para una cantidad ",()=>{
         expect(calcularTotal(2,2,"")).toEqual(4);
     });
-    it("deberia calcular el total para una cantidad ",()=>{
+    it("deberia calcular el total para una cantidad contemplando el impuesto del Estado ",()=>{
         expect(calcularTotal(2,2,"CA")).toEqual(4.33);
     });
-    it("deberia calcular el total para una cantidad ",()=>{
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado",()=>{
         expect(calcularTotal(3,2,"CA")).toEqual(6.495);
     });
-    it("deberia calcular el total para una cantidad ",()=>{
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado",()=>{
         expect(calcularTotal(3,2,"NV")).toEqual(6.48);
     });
-    it("deberia calcular el total para una cantidad ",()=>{
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado",()=>{
         expect(calcularTotal(3,2,"TX")).toEqual(6.375);
     });
-    it("deberia calcular el total para una cantidad ",()=>{
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado y el descuento ",()=>{
         expect(calcularTotal(501,2,"NV")).toEqual(1049.6952);
     });
-    it("deberia calcular el total para una cantidad ",()=>{
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado y el descuento",()=>{
         expect(calcularTotal(501,20,"AL")).toEqual(9378.72);
+    });
+
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado y el descuento",()=>{
+        expect(calcularTotal(200,200,"CA")).toEqual(36805);
+    });
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado y el descuento",()=>{
+        expect(calcularTotal(1000,20,"UT")).toEqual(19197);
+    });
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado y el descuento",()=>{
+        expect(calcularTotal(3510,2,"NV")).toEqual(7050.888000000001);
+    });
+    it("deberia calcular el total para una cantidad  contemplando el impuesto del Estado y el descuento",()=>{
+        expect(calcularTotal(752,4,"TX")).toEqual(3036.2);
     });
 });
 
